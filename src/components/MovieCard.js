@@ -1,36 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MovieCard = ({ movie }) => {
-  const { title, description, posterURL, rating } = movie;
-
-  // Generate star rating display
-  const renderStars = (rating) => {
-    const stars = [];
-    for (let i = 1; i <= 5; i++) {
-      stars.push(
-        <span key={i} className={i <= rating ? 'star filled' : 'star'}>
-          ★
-        </span>
-      );
-    }
-    return stars;
-  };
-
   return (
-    <div className="movie-card">
-      <div className="movie-poster">
-        <img src={posterURL} alt={title} />
-      </div>
+    <Link to={`/movie/${movie.id}`} className="movie-card">
+      <img src={movie.posterURL} alt={movie.title} />
       <div className="movie-info">
-        <h3 className="movie-title">{title}</h3>
-        <p className="movie-description">{description}</p>
-        <div className="movie-rating">
-          <span className="rating-label">Rating: </span>
-          <span className="stars">{renderStars(rating)}</span>
-          <span className="rating-number">({rating}/5)</span>
-        </div>
+        <h3>{movie.title}</h3>
+        <p>⭐ {movie.rating}/5</p>
       </div>
-    </div>
+    </Link>
   );
 };
 

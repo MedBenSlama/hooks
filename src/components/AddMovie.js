@@ -6,6 +6,7 @@ const AddMovie = ({ onAddMovie }) => {
     title: '',
     description: '',
     posterURL: '',
+    trailerURL: '',
     rating: 5
   });
 
@@ -36,6 +37,7 @@ const AddMovie = ({ onAddMovie }) => {
       title: '',
       description: '',
       posterURL: '',
+      trailerURL: '',
       rating: 5
     });
     setIsFormVisible(false);
@@ -90,6 +92,18 @@ const AddMovie = ({ onAddMovie }) => {
               value={formData.posterURL}
               onChange={handleChange}
               required
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="trailerURL">Trailer URL (YouTube Embed):</label>
+            <input
+              type="url"
+              id="trailerURL"
+              name="trailerURL"
+              placeholder="e.g., https://www.youtube.com/embed/xxxxx"
+              value={formData.trailerURL}
+              onChange={handleChange}
             />
           </div>
 
